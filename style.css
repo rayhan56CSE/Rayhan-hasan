@@ -50,25 +50,27 @@ body {
     color: #38bdf8;
 }
 
-/* হিরো ব্যানার / কভার ছবি (ছবি যেন সুন্দর ও পরিষ্কার দেখায়) */
+/* কভার ব্যানার (ছবি যেন জুম না হয়ে পুরোটা দেখা যায়) */
 .hero-banner {
     width: 100%;
     background-color: #0f172a;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .hero-banner img {
-    max-width: 100%;
-    height: auto;
-    max-height: 480px;
-    object-fit: contain; /* ছবি না কেটে পুরোটা দেখাবে */
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 420px !important;
+    object-fit: contain !important; /* ছবি জুম বা ক্রপ হওয়া বন্ধ করে */
     border-radius: 8px;
+    display: block;
+    margin: 0 auto;
 }
 
-/* মূল কন্টেইনার */
+/* মূল কন্টেইনার লেআউট */
 .container {
     max-width: 900px;
     margin: 30px auto 40px;
@@ -210,6 +212,6 @@ footer {
 @media (max-width: 768px) {
     .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
     .nav-links { gap: 15px; }
-    .hero-banner img { max-height: 280px; }
-    .container { margin-top: 20px; padding: 0 15px; }
+    .hero-banner img { max-height: 250px !important; }
+    .container { margin-top: 15px; padding: 0 15px; }
 }
