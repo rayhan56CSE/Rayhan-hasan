@@ -7,10 +7,37 @@
     font-family: 'Poppins', sans-serif;
 }
 
+:root {
+    --bg: #f0f2f5;
+    --text: #2d3748;
+    --card-bg: #ffffff;
+    --border-muted: #e2e8f0;
+    --heading-color: #0f172a;
+    --nav-card-bg: #f8fafc;
+    --muted-text: #64748b;
+    --skill-bg: #e0f2fe;
+    --skill-text: #0369a1;
+    --project-bg: #f8fafc;
+}
+
+[data-theme="dark"] {
+    --bg: #0b1120;
+    --text: #cbd5e1;
+    --card-bg: #1e293b;
+    --border-muted: #334155;
+    --heading-color: #f1f5f9;
+    --nav-card-bg: #16213a;
+    --muted-text: #94a3b8;
+    --skill-bg: #0c4a6e;
+    --skill-text: #7dd3fc;
+    --project-bg: #16213a;
+}
+
 body {
-    background-color: #f0f2f5;
-    color: #2d3748;
+    background-color: var(--bg);
+    color: var(--text);
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar {
@@ -31,6 +58,12 @@ body {
     text-decoration: none;
 }
 
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -49,22 +82,44 @@ body {
     color: #38bdf8;
 }
 
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    color: #ffffff;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
 .hero-banner {
     width: 100%;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
 
 .hero-banner .hero-frame {
     width: 100%;
-    height: 550px;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-    display: block;
 }
 
 .hero-banner img {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
+    width: auto;
+    object-fit: contain;
     display: block;
 }
 
@@ -77,19 +132,37 @@ body {
 }
 
 .card {
-    background: #ffffff;
+    background: var(--card-bg);
     padding: 35px;
     margin-bottom: 30px;
     border-radius: 16px;
+    border-left: 4px solid #0284c7;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 14px 40px rgba(2, 132, 199, 0.15);
+    transform: translateY(-3px);
 }
 
 .card h2 {
-    color: #0f172a;
+    color: var(--heading-color);
     font-size: 22px;
     margin-bottom: 20px;
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.card h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #0284c7, #38bdf8);
+    border-radius: 3px;
 }
 
 .section-img {
@@ -102,7 +175,7 @@ body {
 .divider {
     margin: 20px 0;
     border: 0;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--border-muted);
 }
 
 .quick-links-grid {
@@ -112,13 +185,13 @@ body {
 }
 
 .nav-card {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: var(--nav-card-bg);
+    border: 1px solid var(--border-muted);
     border-radius: 12px;
     padding: 20px;
     text-align: center;
     text-decoration: none;
-    color: #334155;
+    color: var(--text);
     transition: all 0.3s ease;
 }
 
@@ -131,11 +204,12 @@ body {
 .nav-card h3 {
     font-size: 16px;
     margin-bottom: 5px;
+    color: var(--heading-color);
 }
 
 .nav-card p {
     font-size: 12px;
-    color: #64748b;
+    color: var(--muted-text);
 }
 
 .nav-card:hover {
@@ -151,8 +225,8 @@ body {
 }
 
 .skill-tag {
-    background: #e0f2fe;
-    color: #0369a1;
+    background: var(--skill-bg);
+    color: var(--skill-text);
     padding: 8px 18px;
     border-radius: 25px;
     font-size: 14px;
@@ -175,15 +249,15 @@ body {
 }
 
 .project-box {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: var(--project-bg);
+    border: 1px solid var(--border-muted);
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 20px;
 }
 
 .edu-item h3 {
-    color: #0f172a;
+    color: var(--heading-color);
     font-size: 18px;
     margin-bottom: 6px;
 }
@@ -224,6 +298,7 @@ footer {
 
 @media (max-width: 768px) {
     .navbar { padding: 15px 20px; flex-direction: column; gap: 12px; }
+    .navbar-right { flex-wrap: wrap; justify-content: center; }
     .nav-links { gap: 14px; flex-wrap: wrap; justify-content: center; }
     .hero-banner .hero-frame { height: 320px; }
     .container { margin-top: 15px; padding: 0 15px; }
