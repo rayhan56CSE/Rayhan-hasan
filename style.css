@@ -51,24 +51,18 @@ body {
 
 .hero-banner {
     width: 100%;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 24px 16px;
+    background: none;
+    padding: 0;
 }
 
 .hero-banner .hero-frame {
     width: 100%;
-    max-width: 300px;
-    aspect-ratio: 3 / 4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
+    max-width: none;
+    height: 380px;
+    aspect-ratio: unset;
+    border-radius: 0;
+    box-shadow: none;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .hero-banner img {
@@ -236,8 +230,7 @@ footer {
 @media (max-width: 768px) {
     .navbar { padding: 15px 20px; flex-direction: column; gap: 12px; }
     .nav-links { gap: 14px; flex-wrap: wrap; justify-content: center; }
-    .hero-banner { padding: 16px 12px; }
-    .hero-banner .hero-frame { max-width: 240px; aspect-ratio: 3 / 4; }
+    .hero-banner .hero-frame { height: 260px; }
     .container { margin-top: 15px; padding: 0 15px; }
     .card { padding: 22px; }
 }
