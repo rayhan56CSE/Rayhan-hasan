@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates | Rayhan Hasan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><a href="index.html">Rayhan Hasan</a></div>
+        <div class="navbar-right">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="certificates.html" class="active">Certificates</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 40px;">
+        <section class="card">
+            <h2>Academic Certificates & Achievements</h2>
+            <p style="margin-bottom: 25px;">Click on any certificate to view it in full screen mode:</p>
+
+            <!-- University -->
+            <div class="cert-category">
+                <h3 class="category-title"><i class="fas fa-university"></i> University Education</h3>
+                <div class="cert-grid">
+                    <div class="cert-card" onclick="openLightbox('cert-varsity.jpg', 'B.Sc. in CSE Certificate - Daffodil International University')">
+                        <div class="cert-img-box">
+                            <img src="cert-varsity.jpg" alt="University Certificate" onerror="this.src='https://via.placeholder.com/300x200?text=Varsity+Certificate'">
+                            <div class="cert-overlay"><i class="fas fa-search-plus"></i> View Certificate</div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>B.Sc. in CSE Certificate</h3>
+                            <p>Daffodil International University</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- College (HSC) -->
+            <div class="cert-category">
+                <h3 class="category-title"><i class="fas fa-school"></i> Higher Secondary (College / HSC)</h3>
+                <div class="cert-grid">
+                    <div class="cert-card" onclick="openLightbox('cert-hsc.jpg', 'HSC Certificate - Higher Secondary Education')">
+                        <div class="cert-img-box">
+                            <img src="cert-hsc.jpg" alt="HSC Certificate" onerror="this.src='https://via.placeholder.com/300x200?text=HSC+Certificate'">
+                            <div class="cert-overlay"><i class="fas fa-search-plus"></i> View Certificate</div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>HSC Certificate</h3>
+                            <p>Higher Secondary Certificate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- High School (SSC) -->
+            <div class="cert-category">
+                <h3 class="category-title"><i class="fas fa-graduation-cap"></i> Secondary School (High School / SSC)</h3>
+                <div class="cert-grid">
+                    <div class="cert-card" onclick="openLightbox('cert-ssc.jpg', 'SSC Certificate - Secondary School Education')">
+                        <div class="cert-img-box">
+                            <img src="cert-ssc.jpg" alt="SSC Certificate" onerror="this.src='https://via.placeholder.com/300x200?text=SSC+Certificate'">
+                            <div class="cert-overlay"><i class="fas fa-search-plus"></i> View Certificate</div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>SSC Certificate</h3>
+                            <p>Secondary School Certificate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primary School -->
+            <div class="cert-category">
+                <h3 class="category-title"><i class="fas fa-child"></i> Primary Education (Primary School / PSC)</h3>
+                <div class="cert-grid">
+                    <div class="cert-card" onclick="openLightbox('cert-psc.jpg', 'Primary School Certificate (PSC)')">
+                        <div class="cert-img-box">
+                            <img src="cert-psc.jpg" alt="Primary Certificate" onerror="this.src='https://via.placeholder.com/300x200?text=Primary+Certificate'">
+                            <div class="cert-overlay"><i class="fas fa-search-plus"></i> View Certificate</div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>Primary School Certificate</h3>
+                            <p>PSC / Primary Education Completion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" alt="Certificate Preview">
+        <div id="lightboxCaption"></div>
+    </div>
+
+    <footer>
+        <p>Rayhan Hasan | Department of CSE</p>
+    </footer>
+
+    <script src="theme.js"></script>
+    <script>
+        function openLightbox(imgSrc, captionText) {
+            const modal = document.getElementById("lightboxModal");
+            const modalImg = document.getElementById("lightboxImg");
+            const caption = document.getElementById("lightboxCaption");
+            
+            modal.style.display = "flex";
+            modalImg.src = imgSrc;
+            caption.innerHTML = captionText;
+        }
+
+        function closeLightbox() {
+            document.getElementById("lightboxModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
