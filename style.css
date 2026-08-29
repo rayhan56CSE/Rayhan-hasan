@@ -13,6 +13,7 @@ body {
     line-height: 1.6;
 }
 
+/* নেভিগেশন বার */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -49,16 +50,28 @@ body {
     color: #38bdf8;
 }
 
-.hero-banner img {
+/* হিরো ব্যানার / কভার ছবি (ছবি যেন সুন্দর ও পরিষ্কার দেখায়) */
+.hero-banner {
     width: 100%;
-    height: 400px;
-    object-fit: cover;
-    object-position: center;
+    background-color: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
 }
 
+.hero-banner img {
+    max-width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain; /* ছবি না কেটে পুরোটা দেখাবে */
+    border-radius: 8px;
+}
+
+/* মূল কন্টেইনার */
 .container {
     max-width: 900px;
-    margin: -50px auto 40px;
+    margin: 30px auto 40px;
     padding: 0 20px;
     position: relative;
     z-index: 10;
@@ -93,6 +106,7 @@ body {
     border-top: 1px solid #e2e8f0;
 }
 
+/* কুইক লিঙ্ক গ্রিড */
 .quick-links-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -131,6 +145,7 @@ body {
     border-color: #0284c7;
 }
 
+/* স্কিলস এবং বাটন */
 .skills-container {
     display: flex;
     gap: 12px;
@@ -156,6 +171,7 @@ body {
     font-weight: 600;
 }
 
+/* সোশ্যাল লিঙ্কসমূহ */
 .social-links {
     display: flex;
     gap: 15px;
@@ -181,6 +197,7 @@ body {
 .social-icon.facebook:hover { background: #1877f2; }
 .social-icon.email:hover { background: #ea4335; }
 
+/* ফুটার */
 footer {
     text-align: center;
     padding: 25px;
@@ -189,9 +206,10 @@ footer {
     font-size: 14px;
 }
 
+/* মোবাইল ভিউ রেসপন্সিভ */
 @media (max-width: 768px) {
     .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
     .nav-links { gap: 15px; }
-    .hero-banner img { height: 250px; }
-    .container { margin-top: -30px; padding: 0 15px; }
+    .hero-banner img { max-height: 280px; }
+    .container { margin-top: 20px; padding: 0 15px; }
 }
